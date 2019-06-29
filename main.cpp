@@ -4,6 +4,7 @@
 #include <vector>
 #include <time.h>
 
+#define MATRIX_SIZE 100
 
 /*
 
@@ -45,9 +46,6 @@ int main()
 	std::vector<float> vectorTemplate;
 	std::vector<std::string> vectorTemplate;
 	
-	*/
-
-	/*
 
 	//ALOCIRANJE MEMORIJE (2 nacina):
 	// Prvi:
@@ -77,6 +75,7 @@ int main()
 	}
 	std::cout << "\n" << std::endl;
 
+
 	//MATRICE:
 
 	int matrix[4][4];
@@ -93,83 +92,67 @@ int main()
 	
 	*/
 
+
+
+
+
 	//Prvi zadatak:
-	
+		
+
 	srand(time(NULL));
 
-	int matrix[10][10];
-	for (int x = 0; x < 10; ++x)
+	int matrix[MATRIX_SIZE][MATRIX_SIZE];
+	for (int x = 0; x < MATRIX_SIZE; ++x)
 	{
-		for (int y = 0; y < 10; ++y)
+		for (int y = 0; y < MATRIX_SIZE; ++y)
 		{
 			matrix[x][y] = (rand() % 200 + 1) - 100;
 			std::cout << matrix[x][y] << "\t";
 		}
 		std::cout << std::endl;
 	}
+
+	int offset;
+	int frontDiagonal = 0;
+	int backDiagonal = 0;
+	int currentOffsetX = 0;
+	int currentOffsetY = 0;
+	std::cout << "Offset size: ";
+	std::cin >> offset;
+	std::cout << std::endl;
+	
+	for (int y = currentOffsetY; y < offset + currentOffsetY; ++y)
+	{
+		if (offset + currentOffsetY > MATRIX_SIZE)
+		{
+			break;
+		}
+
+		for (int x = currentOffsetX, y = currentOffsetY; x < offset + currentOffsetX; ++x)
+		{
+			if (offset + currentOffsetX > MATRIX_SIZE)
+			{
+				break;
+			}
+
+			std::cout << matrix[x][y] << " ";
+			if (x + 1 == offset + currentOffsetX)
+			{
+				currentOffsetX = x + 1;
+			}
+		}
+		std::cout << std::endl;
+		if (y + 1 == offset + currentOffsetY)
+		{
+			currentOffsetY = y + 1;
+		}
+	}
+	
+	//Naci najljepsu matricu
+	
+	
 	
 	system("PAUSE");
-	/*
-	int matrica[10][10];
-	int N, M;
 
-	std::cout << "Upisi dimenziju matrice: " << std::endl;
-	std::cin >> N;
-	M = N;
-	matrica[N][M];
-	
-
-
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			cout << "Matrica [" << i << "," << j << "] ---> ";
-			cin >> matrica[i][j];
-		}
-	}
-
-	
-	cout << endl;
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			if (i < j)
-			{
-				cout << matrica[i][j] << " ";
-			}
-			else
-			{
-				cout << "  ";
-			}
-		}
-		cout << endl;
-	}
-
-	return 0;
-	
-	
-
-	int A, B, N, M;
-
-
-	if (2 < N < 10)
-	{
-		std::cout << "test" << std::endl;
-	}
-	else
-	{
-		std::cout << "Nedozvoljena dimenzija!" << std::endl;
-		return 0;
-	}
-	for (size_t i = 0; i < N; i++)
-	{
-		std::cout << matrica[i][i] << std::endl;
-	}
-
-	std::cin.get();
-	
-	*/
 
 }
