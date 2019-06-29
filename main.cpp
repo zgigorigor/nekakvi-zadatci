@@ -2,10 +2,12 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <time.h>
 
 
-/*template <typename T>
+/*
+
+template <typename T>
 T Sum(T a, T b)
 	{
 		return a + b;
@@ -18,12 +20,17 @@ public:
 	_Ty table[];
 
 	void push_back(_Ty element);
-};*/
+};
+
 using namespace std;
+
+*/
 
 int main()
 {
-	/*int sumNumber = Sum(5, 7);
+	/*
+	
+	int sumNumber = Sum(5, 7);
 	float floatingSum = Sum(3.4f, 7.7f);
 
 	std::cout << "Zbroj int-ova: " << sumNumber << std::endl;
@@ -36,9 +43,12 @@ int main()
 
 	std::vector<int> vectorTemplate;
 	std::vector<float> vectorTemplate;
-	std::vector<std::string> vectorTemplate;*/
+	std::vector<std::string> vectorTemplate;
+	
+	*/
 
-/*
+	/*
+
 	//ALOCIRANJE MEMORIJE (2 nacina):
 	// Prvi:
 	int myNumberArray[4];
@@ -80,9 +90,26 @@ int main()
 	
 
 	int threeD[4][4][4];
-*/
+	
+	*/
 
 	//Prvi zadatak:
+	
+	srand(time(NULL));
+
+	int matrix[10][10];
+	for (int x = 0; x < 10; ++x)
+	{
+		for (int y = 0; y < 10; ++y)
+		{
+			matrix[x][y] = (rand() % 200 + 1) - 100;
+			std::cout << matrix[x][y] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	
+	system("PAUSE");
+	/*
 	int matrica[10][10];
 	int N, M;
 
@@ -92,7 +119,7 @@ int main()
 	matrica[N][M];
 	
 
-	/*
+
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -101,7 +128,8 @@ int main()
 			cin >> matrica[i][j];
 		}
 	}
-	*/
+
+	
 	cout << endl;
 	for (int i = 0; i < 4; i++)
 	{
@@ -119,10 +147,10 @@ int main()
 		cout << endl;
 	}
 
-	system("PAUSE");
 	return 0;
 	
-	/*
+	
+
 	int A, B, N, M;
 
 
@@ -141,6 +169,7 @@ int main()
 	}
 
 	std::cin.get();
+	
 	*/
 
 }
